@@ -16,6 +16,7 @@ instruction_t opcode_func[] = {
 {"swap", op_swap},
 {"add", op_add},
 {"nop", op_nop},
+{NULL, NULL},
 };
 while ((opcode_func[i].opcode != NULL))
 {
