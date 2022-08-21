@@ -1,5 +1,15 @@
-
-// Prototypes
+#ifndef MONTY_H
+#define MONTY_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <stdarg.h>
+#include <ctype.h>
 
 
 /**
@@ -31,3 +41,15 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+extern stack_t *head;
+void push(stack_t **stack, unsigned int nline);
+void pall(stack_t **stack, unsigned int nline);
+void pint(stack_t **stack, unsigned int nline);
+int interpreter_line(char *pline, unsigned int nline, int mode);
+void search_func(char *opcode, char *v, unsigned int nline, int mode);
+void exec_fun(void (*f)(), char *opcode, char *v, unsigned int nline, int mode);
+
+stack_t *create_node(int n);
+void free_node();
+
+#endif
